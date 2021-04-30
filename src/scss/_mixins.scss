@@ -1,0 +1,38 @@
+@import "variables";
+@mixin font($fontName, $font, $fontWeight: '400', $fontStyle: 'normal'){
+  @font-face {
+    font-family: $font;
+    src: url('../fonts/' + $fontName + '/fonts/' + $fontName + '.eot');
+    src: local('☺'),
+    url('../fonts/' + $fontName + '/fonts/' + $fontName + '.woff') format('woff'),
+    url('../fonts/' + $fontName + '/fonts/' + $fontName + '.ttf') format('truetype'),
+    url('../fonts/' + $fontName + '/fonts/' + $fontName + '.svg') format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+  }
+}
+
+@mixin abs-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+@mixin abs-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
