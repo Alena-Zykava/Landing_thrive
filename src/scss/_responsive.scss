@@ -4,10 +4,7 @@
 @media screen and (max-width: 1200px) {
   .header {
     &-menu {
-      padding-bottom: 100px;
-    }
-    &-wrapper {
-      padding: 30px 100px 0 120px;
+      padding: 0 120px 50px;
     }
     &-text {
       &__title {
@@ -101,11 +98,8 @@
 @media screen and (max-width: 992px) {
   .header {
     &-menu {
-      padding-bottom: 60px;
-    }
-    &-wrapper {
-      padding: 30px 70px 0 70px;
-    }
+      padding: 0 80px 60px ;
+    }    
     &-text {
       &__title {
         font-size: 30px;
@@ -113,8 +107,8 @@
         padding: 20px 0 40px;
       }
       &__subtitle {
-          font-size: 20px;
-          line-height: 35px;
+        font-size: 20px;
+        line-height: 35px;
       }
       &__button {
         font-size: 12px;
