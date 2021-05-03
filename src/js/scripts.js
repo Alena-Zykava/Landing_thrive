@@ -1,17 +1,13 @@
-import $ from 'jquery';
+import { tns } from './../../node_modules/tiny-slider/src/tiny-slider';
 
-// Global jQuery variables
-global.jQuery = $;
-global.$ = $;
-
-// Example import owl-carousel
-// let owl_carousel = require('owl.carousel');
-// window.fn = owl_carousel;
-
-$(document).ready(()=>{
-
-  // Write comment here ------------------------------------------------------------------------------------------------
-
-  // -------------------------------------------------------------------------------------------------------------------
-
+const slider = tns({
+    container: '.my-slider',
+    items: 3,
+    slideBy: "page",
+    mouseDrag: true,
+    swipeAngle: false,
+    speed: 400,
+    loop: false,
+    controlsText: ['', ''],
+    nav: false
 });
