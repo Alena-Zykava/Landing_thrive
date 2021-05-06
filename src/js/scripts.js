@@ -47,15 +47,19 @@ function closeMenu(e) {
     }
 }
 
-const hiddenElement = document.querySelector('#contact');
-const btnScrollTo = document.querySelector('.scroll-to');
-
 function handleButtonClick(e) {
     e.preventDefault();
-    hiddenElement.scrollIntoView({block: "center", behavior: "smooth"});
+    document.querySelector('#contact').scrollIntoView({block: "center", behavior: "smooth"});
 }
 
-btnScrollTo.addEventListener('click', handleButtonClick);
-
+function underlineItem(e) {
+    document.querySelectorAll('.menu-item.active').forEach((item) => item.classList.remove('active'));
+    const isItem = e.target.closest('.menu-item');
+    if (isItem) {        
+        isItem.classList.add('active');
+    }
+}
 document.querySelector('.mobile-btn').addEventListener('click', toggleMenu);
 document.querySelector('.overlay').addEventListener('click', closeMenu);
+document.querySelector('.scroll-to').addEventListener('click', handleButtonClick);
+document.querySelectorAll('.menu-items').forEach((el) => el.addEventListener('click', underlineItem));
