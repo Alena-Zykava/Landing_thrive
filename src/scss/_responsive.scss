@@ -6,12 +6,16 @@
     &-menu {
       padding: 0 120px 50px;
     }
-    &-text {
-      &__title {
-        font-size: 40px;
-        line-height: 48px;
-        padding: 30px 0 60px;
-      }
+  }
+
+  .section0 {
+    &__title {
+      font-size: 38px;
+      line-height: 48px;
+      padding: 30px 0 60px;
+    }
+    &-wrapper {
+      padding: 40px 50px;
     }
   }
   .section1__content {
@@ -26,13 +30,13 @@
 
   .section3 {
     padding-bottom: 80px;
-    &__wrapper-content {
-      height: 250px;
-    }
     &__content {
+      min-height: 250px;
       padding: 40px 35px;
-      font-size: 28px;
     }
+  }
+  .wrapper-circle {
+    font-size: 28px;
   }
   .circle {
     flex: 0 0 8px;
@@ -41,8 +45,7 @@
   }
   .section4 {
     &__content {
-      height: 340px;
-      font-size: 28px;
+      min-height: 340px;
       padding: 55px 40px;
     }
   }
@@ -98,21 +101,26 @@
 @media screen and (max-width: 992px) {
   .header {
     &-menu {
-      padding: 0 80px 60px ;
-    }    
-    &-text {
-      &__title {
-        font-size: 30px;
-        line-height: 40px;
-        padding: 20px 0 40px;
-      }
-      &__subtitle {
-        font-size: 20px;
-        line-height: 35px;
-      }
-      &__button {
-        font-size: 12px;
-      }
+      padding: 0 80px 60px;
+    }
+  }
+
+  .section0 {
+    &__title {
+      font-size: 30px;
+      line-height: 40px;
+      padding: 20px 0 40px;
+    }
+    &__subtitle {
+      font-size: 20px;
+      line-height: 35px;
+    }
+    &__button {
+      font-size: 12px;
+    }
+
+    &-wrapper {
+      padding: 20px 30px;
     }
   }
   .section1__content {
@@ -146,10 +154,17 @@
   }
 
   .section3 {
+    padding-bottom: 50px;
     &__content {
-      font-size: 22px;
+      min-height: 200px;
+    }
+    &__content {
       padding: 30px 25px;
     }
+  }
+
+  .wrapper-circle {
+    font-size: 22px;
   }
 
   .section5 {
@@ -205,10 +220,164 @@
 
 /*****Start 768*****/
 @media screen and (max-width: 768px) {
+  .header {
+    &-menu {
+      padding: 0 30px 30px;
+    }
+    &-button {
+      display: none;
+      &.mobile {
+        display: inline-block;
+      }
+    }
+  }
+  .menu {
+    display: none;
+  }
+  .mobile-btn {
+    display: block;
+  }
+  
+  .section4 {
+    &__content {
+      width: calc(100% / 2);
+      min-height: 250px;
+      padding: 35px 20px;
+    }
+  }
+
+  .section5 {
+    &__content {
+      width: calc(100% / 2);
+    }
+  }
+
+  .section6 {
+    &__content {
+      padding: 30px;
+      &__subtitle {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  .section7 {
+    &__content {
+      &__title {
+        font-size: 30px;
+        padding-bottom: 20px;
+      }
+      &__subtitle {
+        font-size: 18px;
+        line-height: 26px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  .section8 {
+    &__wrapper-content {
+      flex-direction: column;
+      padding: 30px;
+    }
+    &__content {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+  }
+
+  .footer-content {
+    padding: 25px;
+    text-align: left;
+  }
 }
 /*****End 768*****/
 
 /*****Start 575*****/
 @media screen and (max-width: 575px) {
+  .section0 {
+    flex-direction: column;
+    &__title {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    &__subtitle {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .section1 {
+    &__image {
+      display: none;
+    }
+    &__content {
+      margin: 30px 30px 20px;
+      &__subtitle {
+        font-size: 16px;
+      }
+      &__subtitle-bold {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .section2 {
+    padding: 30px;
+    &__subtitle {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  .section3 {
+    padding-bottom: 20px;
+    &__content {
+      padding: 30px 45px;
+    }
+  }
+
+  .section4 {
+    &__content {
+      width: 100%;
+      min-height: 250px;
+      padding: 30px 45px;
+    }
+  }
+
+  .section5 {
+    &__content {
+      width: 100%;
+    }
+  }
+
+  .section6 {
+    flex-direction: column;
+    &__image {
+      height: 250px;
+    }
+    &__content {
+      min-height: 250px;
+    }
+  }
+
+  .section7 {
+    flex-direction: column;
+    &__content {
+      padding: 30px;
+    }
+    &__image {
+      display: none;
+    }
+  }
+
+  .section8 {
+    flex-direction: column;
+    &__wrapper-content {
+      flex-direction: column;
+    }
+  }
 }
 /*****End 575*****/

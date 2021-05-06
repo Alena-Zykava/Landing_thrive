@@ -13,12 +13,15 @@ body {
   font-family: $font;
   font-weight: 400;
   line-height: 1.3125;
-  color: $color-text;
+  color: $color-dark-blue;
   background: #fff;
   min-height: 100vh;
   position: relative;
   z-index: 0;
   letter-spacing: 0.015em;
+  &.hidden {
+    overflow: hidden;
+  }
 }
 
 .site-input {
@@ -34,20 +37,13 @@ body {
   &-menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 180px 80px;
   }
   &-wrapper {
     padding-top: 30px;
     background-color: #f4f9e2;
-  }
-  &__logo {
-    color: $color-logo;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: -0.035em; //разобраться
-  }
-  &-wrapper-button {
-    display: flex;
+    position: relative;
   }
   &-button {
     padding: 20px 30px;
@@ -58,12 +54,132 @@ body {
     text-transform: uppercase;
     color: $color-white;
     cursor: pointer;
+    &.mobile {
+      display: none;
+      padding: 15px;
+      img {
+        height: 30px;
+        width: 30px;
+      }
+    }
     &:hover {
-      filter: brightness(80%);
+      filter: brightness(50%);
     }
   }
+}
+
+.logo {
+  color: $color-logo;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.035em;
+  opacity: 1;
+  transition: $transition;
+  &-header {
+    &.hidden {
+      opacity: 0;
+    }
+  }
+}
+
+.menu-items {
+  display: flex;
+}
+
+.menu-item {
+  display: flex;
+  list-style-type: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  &.active {
+    a {
+      border-bottom: 1px solid $color-dark-blue;
+    }
+  }
+  a {
+    &:hover {
+      color: $color-light-blue;
+    }
+  }
+}
+
+.menu-mobile {
+  position: absolute;
+  top: -100vh;
+  right: 0;
+  padding-top: 30px;
+  text-align: center;
+  background-color: #f4f9e2;
+  height: 100vh;
+  min-width: 320px;
+  transition: $transition;
+  overflow-y: scroll;
+  &.active {
+    top: 0;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 70px;
+    li {
+      font-size: 25px;
+    }
+  }
+}
+
+.mobile-btn {
+  display: none;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  z-index: 20;
+  transition: $transition;
+  span {
+    position: absolute;
+    top: calc(50% - 1.5px);
+    height: 2px;
+    width: 100%;
+    background: $color-light-blue;
+    left: 0;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: $color-light-blue;
+    }
+    &::before {
+      top: -8px;
+    }
+    &::after {
+      bottom: -8px;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  opacity: 0.5;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: $color-light-blue;
+  visibility: hidden;
+  transition: $transition;
+  &.active {
+    opacity: 0.5;
+    visibility: visible;
+  }
+}
+
+.section0 {
+  display: flex;
+  background-color: #f4f9e2;
   &__image {
-    width: 30%;
+    min-width: 30%;
     img {
       height: 100%;
       width: 100%;
@@ -71,50 +187,34 @@ body {
       object-position: right top;
     }
   }
-  &-text {
-    display: flex;
-    &-wrapper {
-      max-width: 60%;
-      padding: 80px 100px;
-    }
-    &__title {
-      font-size: 48px;
-      line-height: 55px;
-      letter-spacing: -0.035em;
-      text-transform: uppercase;
-      padding: 40px 0 82px;
-    }
-    &__subtitle {
-      font-size: 24px;
-      line-height: 43px;
-      padding-bottom: 25px;
-    }
-    &__button {
-      padding: 10px 30px;
-      margin-right: 10px;
-      background-color: #f9b640;
-      border: none;
-      &:hover {
-        filter: brightness(80%);
-      }
-    }
+  &-wrapper {
+    max-width: 800px;
+    padding: 80px 150px;
   }
-}
-
-.menu {
-  ul {
+  &__title {
+    font-size: 48px;
+    line-height: 55px;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    padding: 40px 0 82px;
+  }
+  &__subtitle {
+    font-size: 24px;
+    line-height: 43px;
+    padding-bottom: 25px;
+  }
+  &-wrapper-button {
     display: flex;
-    li {
-      list-style-type: none;
-      padding: 10px 15px;
-      font-size: 14px;
-      font-weight: 700;
-      &:hover {
-        color: $color-light-blue;
-      }
-    }
-    .active {
-      border-bottom: 1px solid $color-text;
+    flex-wrap: wrap;
+  }
+  &__button {
+    padding: 10px 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #f9b640;
+    border: none;
+    &:hover {
+      filter: brightness(80%);
     }
   }
 }
@@ -184,10 +284,6 @@ body {
   &__content {
     padding: 72px 52px;
     color: $color-white;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 35px;
-    letter-spacing: -0.006em;
     min-height: 360px;
     hr {
       border: 1px solid $color-white;
@@ -229,7 +325,7 @@ body {
   }
   &:nth-child(7) {
     .section3__content {
-      background-color: #22356f;
+      background-color: $color-dark-blue;
     }
   }
 }
@@ -267,6 +363,19 @@ button[data-controls="prev"] {
   }
 }
 
+button[data-nav] {
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+}
+.tns-nav {
+  text-align: center;
+  &-active {
+    background-color: $color-light-blue;
+  }
+}
 .tns-outer {
   position: relative;
 }
@@ -287,19 +396,15 @@ button[data-controls="prev"] {
   }
   &__content {
     width: calc(100% / 3);
-    height: 480px;
+    min-height: 480px;
     padding: 96px 70px;
     color: $color-white;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 35px;
-    letter-spacing: -0.006em;
     hr {
       border: 1px solid $color-white;
       margin-bottom: 30px;
     }
     &:nth-child(1) {
-      background-color: #22356f;
+      background-color: $color-dark-blue;
     }
     &:nth-child(2) {
       background-color: #0052c1;
@@ -323,6 +428,10 @@ button[data-controls="prev"] {
 
 .wrapper-circle {
   display: flex;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: -0.006em;
 }
 .circle {
   flex: 0 0 12px;
@@ -394,7 +503,7 @@ button[data-controls="prev"] {
 .section7 {
   color: $color-white;
   display: flex;
-  background-color: #22356f;
+  background-color: $color-dark-blue;
   &__content {
     padding: 103px 235px 42px 180px;
     display: flex;
